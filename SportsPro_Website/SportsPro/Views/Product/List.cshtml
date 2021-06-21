@@ -1,0 +1,53 @@
+﻿@model List<Product>
+@{
+    ViewData["Title"] = "Products";
+}
+
+<p class="pagetitle">Product List</p>
+@*@if (TempData.Keys.Contains("message"))
+{
+    <h4 class="bg-info text-center text-white p-2">
+        @TempData["message"]
+    </h4>
+}*@
+
+<form asp-action="Add" asp method="get">
+    <input type="submit" value="Add Product" class="btn btn-primary buttons" />
+</form>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Release Date</th>
+            <th></th>
+            <th></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.ProductCode</td>
+                <td>@product.Name</td>
+                <td>@($"{product.YearlyPrice:C}")</td>
+                <td>@product.ReleaseDate</td>
+                <td>
+                    <form asp-action="Edit" asp-route-id="@product.ProductID" asp method="get">
+                        <input type="submit" value="Edit" class="btn btn-primary" />
+                    </form>
+                </td>
+                <td>
+                    <form asp-action="Delete" asp-route-id="@product.ProductID" method="post">
+                        <input type="submit" value="Delete" class="btn btn-primary" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-controller="Home" asp-action="Index"
+   class="btn btn-primary">Home</a>
+

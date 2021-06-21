@@ -1,0 +1,126 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Mvc.ViewFeatures;
+@using Microsoft.AspNetCore.Mvc.Rendering; 
+
+@inject SignInManager<User> signInManager
+@{
+    string controller =
+        ViewContext.RouteData.Values["controller"].ToString();
+    string action =
+        ViewContext.RouteData.Values["action"].ToString();
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SportsPro</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @{if (action == "Add" || action == "Edit")
+        {
+            //using the partial view to retrieve the jQuery libraries for data validation
+            <partial name="_ValidationScriptsPartial" />
+        }
+    }
+    <link rel="stylesheet" href="~/css/Site.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+            <a class="navbar-brand" href="/"><img class ="navlogo" src="~/images/splogosmall.png" /></a>
+           
+
+            @*Replace navbarbutton with a view*@
+            <partial name="_NavbarMenuButtonPartial" />
+
+            @*Navbar use a taghelper to show active link*@
+
+            <nav class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="navbar-nav mr-auto">
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a class="nav-item nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                        <a class="nav-item nav-link" asp-controller="Product" asp-action="List">Products</a>
+                        <a class="nav-item nav-link" asp-controller="Technician" asp-action="List">Technicians</a>
+                        <a class="nav-item nav-link" asp-controller="Customer" asp-action="List">Customers</a>
+                        <a class="nav-item nav-link" asp-controller="Incident" asp-action="List">Incidents</a>
+                        <a class="nav-item nav-link" asp-controller="TechIncident" asp-action="ListByTech">Update Incidents</a>
+                        <a class="nav-item nav-link" asp-controller="Registration" asp-action="List">Registrations</a>
+                    }
+                    else if (signInManager.IsSignedIn(User))
+                    {
+                        <a class="nav-item nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                        <a class="nav-item nav-link" asp-controller="TechIncident" asp-action="ListByTech">Update Incidents</a>
+                        <a class="text-light navname">Welcome @User.Identity.Name!</a>
+                        
+                    }
+                    else
+                    {
+                        <a class="nav-item nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                        
+                    }
+
+
+                    
+                </div>
+                <div class="navbar-nav navbar-right">
+                    @if (signInManager.IsSignedIn(User))
+                    {
+                        // signed-in user - Log Out button and username
+                        <li class="nav-item">
+                            <form method="post" asp-action="Logout" asp-controller="Account"
+                                  asp-area="">
+                                <input type="submit" value="Log Out"
+                                       class="btn btn-outline-light" />
+                                <span class="text-light navname">@User.Identity.Name</span>
+                            </form>
+                        </li>
+                    }
+                    else
+                    {
+                        //get current action
+                        var newAction = ViewContext.RouteData.Values["action"]?.ToString();
+
+                        // anonymous user - Register link and Log In button
+                        
+
+                        <li class="nav-item @Nav.Active("Register", newAction)">
+                            <a asp-action="Register" asp-controller="Account"
+                               asp-area="" class="nav-link">Register</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a asp-action="Login" asp-controller="Account"
+                               asp-area="" class="btn btn-outline-light">Log In</a>
+                        </li>
+                    }
+                    <a class="nav-item nav-link active" asp-controller="Home" asp-action="About">About</a>
+                    </div>
+            </nav>
+        </nav>
+    
+
+    </header>
+    <div class="container">
+        <main role="main" class="pb-5">
+
+            @*show if any message in TempData using partial view*@
+            <my-temp-message />
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+
+            @*Show copy right message using partial view*@
+            <partial name="_CopyRightInfo" />
+        </div>
+    </footer>
+</body>
+</html>
