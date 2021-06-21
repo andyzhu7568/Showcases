@@ -1,0 +1,22 @@
+extends agenttemp
+block content
+    h1  Search Results 
+    
+    if result 
+        h2 #{result.CustFirstName} #{result.CustLastName} 
+        div
+            p #{result.CustAddress}
+            p #{result.CustCity}, #{result.CustProv} 
+            p Home Phone: #{result.CustHomePhone} 
+
+            p Email: #{result.CustEmail}
+            p CustID: #{result.CustomerId} 
+
+        
+
+    else if commission
+        h2 #{commission.AgtFirstName} #{commission.AgtLastName} 
+        p Agent ID: #{commission.AgentId} 
+        h3 This Months Comission: $ #{commission.Commission}
+    else
+        h2 No Results Found

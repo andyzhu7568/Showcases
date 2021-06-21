@@ -1,0 +1,37 @@
+extends packtemplate 
+block content 
+
+    h1= package.PkgName
+        div
+          img.packageImage(src='/Images/' + package.Img1 alt=package.PkgDesc)
+          img.packageImage(src='/Images/' + package.Img2 alt=package.PkgDesc)
+          img.packageImage(src='/Images/' + package.Img3 alt=package.PkgDesc)
+
+
+    h2=package.PkgDesc
+    h3=package.PkgStartDate 
+    h3= package.PkgEndDate
+    h3 Local Attractions 
+      a.button(target="blank" href=package.LocalAttraction) Things to Do
+    h2 $ #{package.PkgBasePrice}
+    div
+      br
+      div
+          a.button(href='/packages/' + package.PackageId + '/cart' ) Select Package
+    
+    //-   h2.header.description-header CART
+    //-   .cart-row
+    //-       strong.cart-package.cart-header.cart-column PACKAGE
+    //-       strong.cart-price.cart-header.cart-column PRICE
+    //-       strong.cart-quantity.cart-header.cart-column QUANTITY
+    //-   .cart-row
+    //-       .cart-package.cart-column
+    //-         span.package-name.package.PkgName
+    //-       span.cart-price.cart-column $ #{package.PkgBasePrice}
+    //-       .cart-quantity.cart-column.right
+    //-           input.input-box(name="quantity" type="number", value="0")
+    //-           button.button-cart(role="button") REMOVE
+    //-           button.button-cart(role="button") ADD
+    //-       br
+    //-   .cart-total
+    //-       strong Total

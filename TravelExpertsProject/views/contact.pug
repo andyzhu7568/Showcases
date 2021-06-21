@@ -1,0 +1,118 @@
+extends template 
+block content
+
+  h1.header TRAVEL EXPERTS
+
+  img(src='Images/Globe blue on transparent.png' alt='agentLogo')
+  .contact-section
+    .contact-calgary
+      h3 CALGARY OFFICE
+      p Address: 111 Calgary RD NW
+      p Phone: 111-111-1111
+      p Email: CALGARYOFFICE@CALGARY.COM
+      button.button1(onclick='myFunction1()')
+        | Calgary Office Agents Info
+      #myDIV1.hidden
+        br
+        p.agentName Dennis C. Reynolds
+        br
+        |       Junior Agent
+        br
+        |       Phone: (403) 210-7843
+        br
+        a(href='mailto:dennis.reynolds@travelexperts.com') Email: dennis.reynolds@travelexperts.com
+        hr
+        p.agentName Janet Delton
+        br
+        |       Senior Agent
+        br
+        |       Phone: (403) 210-7801
+        br
+        a(href='mailto:janet.delton@travelexperts.com') Email: janet.delton@travelexperts.com
+        hr
+        p.agentName Janice W. Dahl
+        br
+        |       Senior Agent 
+        br
+        |       Phone: (403) 210-7865
+        br
+        a(href='mailto:janice.dahl@travelexperts.com') Email: janice.dahl@travelexperts.com
+        hr
+        p.agentName John Coville
+        br
+        |       Intermediate Agent
+        br
+        |       Phone: (403) 210-7823
+        br
+        a(href='mailto:john.coville@travelexperts.com') Email: john.coville@travelexperts.com
+        hr
+        p.agentName Judy Lisle
+        br
+        |       Intermediate Agent 
+        br
+        |       Phone: (403) 210-7802 
+        br
+        a(href='mailto:judy.lisle@travelexperts.com') Email: judy.lisle@travelexperts.com
+
+        hr
+      script.
+        function myFunction1() {
+        var x = document.getElementById("myDIV1");
+        if (x.style.display === "none") {
+        x.style.display = "block";
+        } else {
+        x.style.display = "block";
+        }
+        }
+
+      // <img width="55%" src="images/Office Placeholder.png" />
+    .contact-okotoks
+      h3 OKOTOKS OFFICE
+      p Address: 111 Okotoks RD NW
+      p Phone: 111-222-2222
+      p Email: OKOTOKSOFFICE@OKOTOKS.COM
+      button.button2(onclick='myFunction2()')
+        | Okotoks Office Agents Info
+      #myDIV2.hidden
+        br
+        p.agentName Beverly S. Jones
+        br
+        | Intermediate Agent
+        br
+        |       Phone: (403) 210-7812
+        br
+        a(href='mailto:beverly.jones@travelexperts.com') Email: beverly.jones@travelexperts.com
+        hr
+        p.agentName Brian S. Peterson
+        br
+        | Junior Agent
+        br
+        |       Phone: (403) 210-7833
+        br
+        a(href='mailto:brian.peterson@travelexperts.com') Email: brian.peterson@travelexperts.com
+        hr
+        p.agentName Bruce J. Dixon
+        br
+        | Intermediate Agent
+        br
+        |       Phone: (403) 210-7867
+        br
+        a(href='mailto:bruce.dixon@travelexperts.com') Email: bruce.dixon@travelexperts.com
+        hr
+        p.agentName Jane Merrill
+        br
+        | Senior Agent
+        br
+        |       Phone: (403) 210-7868
+        br
+        a(href='mailto:jane.merrill@travelexperts.com') Email: jane.merrill@travelexperts.com
+        hr
+    script.
+      function myFunction2() {
+      var x = document.getElementById("myDIV2");
+      if (x.style.display === "none") {
+      x.style.display = "block";
+      } else {
+      x.style.display = "block";
+      }
+      }

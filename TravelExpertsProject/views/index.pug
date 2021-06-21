@@ -1,0 +1,22 @@
+extends template 
+block content
+  h1.header TRAVEL EXPERTS
+  img(src='Images/Globe blue on transparent.png')
+  //- Display welcome message for succesful login
+  div 
+    if headermsg
+      h2= headermsg
+  div
+    section
+      .browse-package
+        h2 Plan Your Dream Vacation
+        p
+          a(href='packages')
+            button.button(type='button') VIEW PACKAGES&#x25BA;
+    section.white
+      h2 Why Travel with Travel Experts
+      h3
+        | Travel with Confidence.
+        | Travel with Class.
+        | Travel in Comfort.
+      img(src='/Images/Globe blue on transparent.png')

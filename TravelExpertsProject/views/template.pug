@@ -1,0 +1,40 @@
+doctype html
+head
+  title=title
+  meta(name='description' content='This is the description')
+  link(rel='preconnect' href='https://fonts.gstatic.com')
+  link(href='https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,500&family=Raleway:ital,wght@0,100;0,400;0,700;1,100&display=swap')
+  link(rel='stylesheet' href='/stylesheets/styles.css')
+  link(rel='shortcut icon' type='image/jpg' href='/images/logofav.png')
+header
+  nav
+    ul.navbar
+      li
+        a(href='/') HOME
+      li
+        a(href='/packages') PACKAGES
+      li
+        a(href='/login') LOG IN
+      li
+        a(href='/contact') CONTACT
+      ul.navbar-right 
+        li
+          a(href='/agent') AGENT LOGIN
+
+  block content 
+
+
+  section
+    .browse-package3
+  section.gray
+    h2 CONTACT US TODAY
+    p
+      | If you are looking to speak to an agent, contact us by clicking the
+      | button below!
+    a(href='/contact')
+      button.btn-contact.action CONTACT US
+body
+footer.main-footer
+    div
+      p
+        | &#169 2021 Travel Experts Inc

@@ -1,0 +1,47 @@
+extends packtemplate 
+block content 
+
+    h1 Cart
+    h2= package.PkgName
+    img(src='/Images/Globe blue on transparent.png' width="100px")
+    
+    div
+      br
+      h2.header.description-header CHECK OUT
+      .cart-row
+        strong.cart-package.cart-header.cart-column PACKAGE
+        strong.cart-price.cart-header.cart-column PRICE (INCLUDES TAX)
+        strong.cart-quantity.cart-header.cart-column QUANTITY
+      .cart-row
+        .cart-package.cart-column
+          span.package-name.package.PkgName Adult
+        span.cart-price.cart-column $ #{package.PkgBasePrice}
+        .cart-quantity.cart-column.right
+            input.input-box(name="quantity" type="number" min="0", value="0" onchange="calculate()" id="qtyAdult")
+        br
+      
+      .cart-row
+        .cart-package.cart-column
+          span.package-name.package.PkgName Child
+        span.cart-price.cart-column $ #{package.PkgChildPrice}
+        .cart-quantity.cart-column.right
+            input.input-box(name="quantity" type="number" min="0", value="0" onchange="calculate()" id="qtyChild")
+              
+      .cart-total
+          strong Total: $
+          strong#totalid
+          br
+          br
+          br
+      .btn-purchase 
+        a.button.button-cart.button-cart-purchase(onclick="confirm('Are you sure you want to submit your payment?')")(href='/packages/' + package.PackageId + '/thankyou/')(role="button") PURCHASE
+  
+    script.
+      function calculate() {
+      var adults = document.getElementById("qtyAdult").value;
+      var children = document.getElementById("qtyChild").value;
+      var adultPrice = #{package.PkgBasePrice};
+      var childPrice = #{package.PkgChildPrice};
+      var total = adultPrice * adults + childPrice * children;
+      document.getElementById("totalid").innerText=total;
+      }

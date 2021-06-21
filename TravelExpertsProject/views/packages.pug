@@ -1,0 +1,20 @@
+extends template 
+block content 
+  div.warning
+      if errors 
+        ul 
+          each error in errors 
+            li= error
+
+  each package in packages 
+    div.packageBox
+      img.travel(src='/Images/' + package.Img1 alt=package.PkgDesc)
+      h2.space=package.PkgName 
+      h3=package.PkgDesc
+      h3=package.PkgStartDate 
+      h3= package.PkgEndDate
+      h2= "$"+ package.PkgBasePrice
+      div.space
+        a.button(href='/packages/' + package.PackageId ) Learn More
+        div.space
+          img(src='/Images/Globe blue on transparent.png' width="100px")

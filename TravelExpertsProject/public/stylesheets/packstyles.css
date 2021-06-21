@@ -1,0 +1,77 @@
+/*Packages by Aaron */
+
+.description-header {
+  text-align: center;
+}
+
+.package-details {
+  text-align: center;
+}
+
+.package-details li {
+  font-size: 1.7rem;
+}
+
+.button-cart {
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(95, 117, 142, 1);
+}
+
+.button-cart-purchase {
+  font-size: 1.75em;
+  text-align: center;
+}
+
+.cart-header {
+  font-weight: bold;
+  font-size: 15px;
+  color: black;
+}
+
+.cart-column {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid black;
+  margin-right: 1.5em;
+  padding-bottom: 10px;
+  margin-top: 10px;
+}
+
+.right {
+  justify-items: end;
+}
+
+.cart-row {
+  display: flex;
+}
+
+.cart-package {
+  width: 45%;
+}
+
+.cart-price {
+  width: 20%;
+}
+
+.cart-quantity {
+  width: 35%;
+}
+
+.input-box {
+  width: 90px;
+  height: 10px;
+  margin-right: 25px;
+  font-size: 20px;
+}
+
+.cart-total {
+  text-align: end;
+  font-size: 25px;
+  padding-right: 45px;
+}
+
+.cart-row {
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 0px;
+}

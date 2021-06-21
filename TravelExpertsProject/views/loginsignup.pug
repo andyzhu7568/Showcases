@@ -1,0 +1,68 @@
+extends template 
+block content
+
+    h1.header Sign Up as a New User
+    img(src='/images/Globe blue on transparent.png')
+    div.warning
+      if errors 
+        ul 
+          each error in errors 
+            li= error
+    div
+      #register
+        h1 Your Journey Begins Here
+        form(action='/login/signup' method='POST')
+          div
+            label(for='CustFirstName') First Name
+            br
+            input(style='width:30%' type='text' name='CustFirstName' id='CustFirstName' placeholder='First Name' required='' value= CustFirstName)
+          div
+            label(for='CustLastName') Last Name
+            br
+            input(style='width:30%' type='text' name='CustLastName' id='CustLastName' required='' placeholder='Last Name' value= CustLastName)
+          div
+            label(for='CustAddress') Street Address
+            br
+            input(style='width:30%' type='text' name='CustAddress' id='CustAddress' required='' placeholder='Street Address' value= CustAddress)
+          div
+            label(for='CustCity') City
+            br
+            input(style='width:30%' type='text' name='CustCity' id='CustCity' required='' placeholder='City' value= CustCity)
+          div
+            label(for='CustProv') Province
+            br
+            input(style='width:30%' type='text' name='CustProv' id='CustProv' required='' placeholder='Province (Abreviation)' value= CustProv)
+          div
+            label(for='CustPostal') Postal Code
+            br
+            input(style='width:30%' type='text' name='CustPostal' id='CustPostal' required='' placeholder='Postal Code' value= CustPostal)
+          div
+            label(for='CustHomePhone') Primary Phone Number
+            br
+            input(style='width:30%' type='text' name='CustHomePhone' id='CustHomePhone' placeholder='XXX-XXX-XXXX' required='' value= CustHomePhone)
+          div
+            label(for='CustBusPhone') Business Phone Number
+            br
+            input(style='width:30%' type='text' name='CustBusPhone' id='CustBusPhone' placeholder='XXX-XXX-XXXX' value= CustBusPhone)
+          div
+            label(for='CustEmail') Email
+            br
+            input#email(style='width:30%' type='email' name='CustEmail' required='' placeholder='Email Address' value= CustEmail)
+          div
+            label(for='password') Password
+            br
+            input#password(style='width:30%' type='password' name='password' required='' placeholder='Enter Password')
+          div
+            label(for='username') username
+            br
+            input#password(style='width:30%' type='username' name='username' required='' placeholder='username (lowercase)')  
+          div
+            label(for='CustomerId') Customer Id Number (3 digits)
+            br
+            input#password(style='width:30%' type='number' name='CustomerId' required='' placeholder='000') 
+          div
+            label(for='AgentId') Agent ID (Type 0 if you don't have an assigned Agent)
+            br
+            input(style='width:30%' type='text' name='AgentId' id='AgentId' placeholder='00' value= AgentId)
+          button.button(type='submit' style='width:30%') SUBMIT
+
